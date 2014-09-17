@@ -20,7 +20,7 @@ Requirements for the RESTful API
   
   • Provide a RESTful API
       
-      o The endpoints should provide CRUD operations: POST, GET, PUT and DELETE D
+      o The endpoints should provide CRUD operations: POST, GET, PUT and DELETE
   
   • Host the application in the cloud
       
