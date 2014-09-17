@@ -20,7 +20,7 @@
         public string Title { get; set; }
 
         [Required]
-        public string Content { get; set; }
+        public string Text { get; set; }
 
         public DateTime EntryTime { get; set; }
 
