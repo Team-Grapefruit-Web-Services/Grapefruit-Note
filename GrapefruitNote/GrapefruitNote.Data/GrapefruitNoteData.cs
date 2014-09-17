@@ -9,8 +9,8 @@
 
     public class GrapefruitNoteData : IGrapefruitNoteData
     {
-        private IGrapefruitNoteDbContext context;
-        private IDictionary<Type, object> repositories;
+        private readonly IGrapefruitNoteDbContext context;
+        private readonly IDictionary<Type, object> repositories = new Dictionary<Type, object>();
 
         public GrapefruitNoteData()
             : this(new GrapefruitNoteDbContext())
@@ -20,7 +20,6 @@
         public GrapefruitNoteData(IGrapefruitNoteDbContext context)
         {
             this.context = context;
-            this.repositories = new Dictionary<Type, object>();
         }
 
         public IRepository<User> Users
@@ -55,6 +54,7 @@
         private IRepository<T> GetRepository<T>() where T : class
         {
             var typeOfModel = typeof(T);
+
             if (!this.repositories.ContainsKey(typeOfModel))
             {
                 var type = typeof(Repository<T>);

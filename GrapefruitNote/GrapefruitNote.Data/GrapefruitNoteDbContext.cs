@@ -12,7 +12,7 @@
         public GrapefruitNoteDbContext()
             : base("GrapefruitNote")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GrapefruitNoteDbContext, Configuration>());
+            Database.SetInitializer<GrapefruitNoteDbContext>(new MigrateDatabaseToLatestVersion<GrapefruitNoteDbContext, Configuration>());
         }
 
         public virtual IDbSet<User> Users { get; set; }

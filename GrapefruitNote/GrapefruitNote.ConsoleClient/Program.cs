@@ -9,10 +9,8 @@
     {
         static void Main()
         {
-            using (GrapefruitNoteDbContext db = new GrapefruitNoteDbContext())
-            {
-                db.Users.Any();
-            }
+            var db = new GrapefruitNoteData();
+            db.Categories.All().Any();
         }
     }
 }
