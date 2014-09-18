@@ -19,30 +19,31 @@ using System.Web;
 
 namespace GrapefruitNote.Web.Controllers
 {
-    public class ProfilePictureController : BaseApiController
+    [Authorize]
+    public class CloudStorageController : BaseApiController
     {
-        private string GoogleDriveClientId = "735079433623-28dbigh1qehsp5k4tmpph2i3s40gr41t.apps.googleusercontent.com";
-        private string GoogleDriveSecret = "2XzoOtuoNhV_AQogZnInr_ol";
-        private string GoogleDriveClientName = "user";
-        private string GoogleDriveApplicationName = "TestingGoogleDriveAPI";
-        private string FileDefaultTitle = "GrapefruitNote";
-        private string FileDefaultDescription = "A test document";
+        private const string GoogleDriveClientId = "735079433623-28dbigh1qehsp5k4tmpph2i3s40gr41t.apps.googleusercontent.com";
+        private const string GoogleDriveSecret = "2XzoOtuoNhV_AQogZnInr_ol";
+        private const  string GoogleDriveClientName = "user";
+        private const string GoogleDriveApplicationName = "TestingGoogleDriveAPI";
+        private const string FileDefaultTitle = "GrapefruitNote";
+        private const string FileDefaultDescription = "A test document";
 
         private readonly IUserIdProvider userIdProvider;
 
-        public ProfilePictureController()
+        public CloudStorageController()
             :this(new GrapefruitNoteData(), new AspNetUserIdProvider())
         {
         }
 
-        public ProfilePictureController(IGrapefruitNoteData data, IUserIdProvider userIdProvider)
+        public CloudStorageController(IGrapefruitNoteData data, IUserIdProvider userIdProvider)
             :base(data)
         {
             this.userIdProvider = userIdProvider;
         }
 
         [HttpPost]
-        public async Task<HttpResponseMessage> PostProfilePicture()
+        public async Task<HttpResponseMessage> UploadPicture()
         {
             if (!this.ModelState.IsValid)
             {
@@ -53,18 +54,18 @@ namespace GrapefruitNote.Web.Controllers
             UserCredential credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
                 new ClientSecrets
                 {
-                    ClientId = this.GoogleDriveClientId,
-                    ClientSecret = this.GoogleDriveSecret
+                    ClientId = GoogleDriveClientId,
+                    ClientSecret = GoogleDriveSecret
                 },
                 new[] { DriveService.Scope.Drive },
-                this.GoogleDriveClientName,
+                GoogleDriveClientName,
                 CancellationToken.None).Result;
 
             // Create the service.
             var service = new DriveService(new BaseClientService.Initializer()
             {
                 HttpClientInitializer = credential,
-                ApplicationName = this.GoogleDriveApplicationName,
+                ApplicationName = GoogleDriveApplicationName,
             });
 
             if (!Request.Content.IsMimeMultipartContent())
@@ -81,8 +82,8 @@ namespace GrapefruitNote.Web.Controllers
                 foreach (var item in provider.Contents)
                 {
                     File body = new File();
-                    body.Title = this.FileDefaultTitle;
-                    body.Description = this.FileDefaultDescription;
+                    body.Title = FileDefaultTitle;
+                    body.Description = FileDefaultDescription;
                     body.MimeType = item.Headers.ContentType.MediaType;
 
                     byte[] byteArray = item.ReadAsByteArrayAsync().Result;

@@ -42,6 +42,8 @@
     <Compile Include="CategoryModel.cs" />
     <Compile Include="NoteModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UserLoggedInModel.cs" />
+    <Compile Include="UserLoginModel.cs" />
     <Compile Include="UserModel.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

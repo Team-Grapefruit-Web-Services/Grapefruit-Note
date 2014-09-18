@@ -8,7 +8,11 @@
         {
             this.Notes = new HashSet<NoteModel>();
             this.Categories = new HashSet<CategoryModel>();
-        }   
+        }
+
+        public int UserId { get; set; }
+
+        public string Username { get; set; }
 
         public string ProfilePictureUrl { get; set; }
 

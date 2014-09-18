@@ -7,7 +7,7 @@
 
     using GrapefruitNote.Models;
 
-    public interface IGrapefruitNoteDbContext
+    public interface IGrapefruitNoteDbContext 
     {
         IDbSet<User> Users { get; set; }
 

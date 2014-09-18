@@ -18,18 +18,27 @@
             {
                 return user => new UserModel
                 {
-                    
+                    UserId = user.UserId,
+                    Username = user.Username,
+                    ProfilePictureUrl = user.ProfilePictureUrl,
+                    Categories = user.Categories.AsQueryable()
+                        .Select(CategoryMapper.ToCategoryModel)
+                        .ToList(),
+                    Notes = user.Notes.AsQueryable()
+                        .Select(NoteMapper.ToNoteModel)
+                        .ToList()
                 };
             }
         }
 
-        public static Expression<Func<UserModel,User>> ToUserEntity
+        public static Expression<Func<UserLoginModel, User>> ToUserEntity
         {
             get 
             {
                 return userModel => new User
                 {
-                    
+                    Username = userModel.Username,
+                    AuthCode = userModel.AuthCode
                 };
             }
         }
