@@ -24,8 +24,6 @@
             return new GrapefruitNoteDbContext();
         }
 
-        //public IDbSet<User> Users { get; set; }
-
         public IDbSet<Note> Notes { get; set; }
 
         public IDbSet<Category> Categories { get; set; }

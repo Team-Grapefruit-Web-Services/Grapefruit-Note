@@ -17,6 +17,7 @@
             {
                 return note => new NoteModel
                 {
+                    NoteId= note.NoteId,
                     Title = note.Title,
                     Text = note.Text,
                     EntryDate = note.EntryDate,

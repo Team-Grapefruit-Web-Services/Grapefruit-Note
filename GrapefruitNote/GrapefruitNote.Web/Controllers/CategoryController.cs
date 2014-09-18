@@ -10,6 +10,7 @@
     using GrapefruitNote.Mappers;
     using GrapefruitNote.DataTransferObjects;
     using GrapefruitNote.Models;
+    using Microsoft.AspNet.Identity.EntityFramework;
 
     [Authorize]
     public class CategoryController : BaseApiController
@@ -19,7 +20,6 @@
         public CategoryController()
             :this(new GrapefruitNoteData(), new AspNetUserIdProvider())
         {
-
         }
 
         public CategoryController(IGrapefruitNoteData data, IUserIdProvider userIdProvider)
@@ -37,6 +37,7 @@
                 .All()
                 .Where(c => c.UserId == currentUserId)
                 .Select(CategoryMapper.ToCategoryModel);
+
             return Ok(allCategories);
         }
 
@@ -70,11 +71,18 @@
                 return this.BadRequest(this.ModelState);
             }
 
-            var existingCategory = this.data.Categories.All().FirstOrDefault(c => c.CategoryId == id);
+            var existingCategory = this.GetCategoryById(id);
 
             if (existingCategory == null)
             {
                 return BadRequest("No category with such id exists.");
+            }
+
+            var currentUserId = this.userIdProvider.GetUserId();
+
+            if (currentUserId != existingCategory.UserId)
+            {
+                return this.BadRequest("Unauthorized access.");
             }
 
             existingCategory.Name = categoryModel.Name;
@@ -86,17 +94,29 @@
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
-            var existingCategory = this.data.Categories.All().FirstOrDefault(c => c.CategoryId == id);
+            var existingCategory = this.GetCategoryById(id);
 
             if (existingCategory == null)
             {
                 return BadRequest("No category with such id exists.");
             }
 
+            var currentUserId = this.userIdProvider.GetUserId();
+
+            if (currentUserId != existingCategory.UserId)
+            {
+                return this.BadRequest("Unauthorized access.");
+            }
+
             this.data.Categories.Delete(existingCategory);
             this.data.SaveChanges();
 
             return this.Ok();
+        }
+
+        private Category GetCategoryById(int id)
+        {
+            return this.data.Categories.All().FirstOrDefault(c => c.CategoryId == id);
         }
     }
 }
