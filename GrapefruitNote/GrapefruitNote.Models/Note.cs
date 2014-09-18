@@ -30,8 +30,14 @@
 
         public virtual ICollection<Category> Categories
         {
-            get { return this.categories; }
-            set { this.categories = value; }
+            get
+            {
+                return this.categories;
+            }
+            set
+            {
+                this.categories = value;
+            }
         }
     }
 }

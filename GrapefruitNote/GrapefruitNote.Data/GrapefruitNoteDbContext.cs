@@ -3,23 +3,32 @@
     using System;
     using System.Data.Entity;
     using System.Linq;
-
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using GrapefruitNote.Models;
     using GrapefruitNote.Data.Migrations;
+    using System.Security.Claims;
+    using System.Threading.Tasks;
 
-    public class GrapefruitNoteDbContext: DbContext, IGrapefruitNoteDbContext
+
+    public class GrapefruitNoteDbContext : IdentityDbContext<User>, IGrapefruitNoteDbContext
     {
         public GrapefruitNoteDbContext()
-            : base("GrapefruitNote")
+            : base("GrapefruitNote", throwIfV1Schema: false)
         {
-            Database.SetInitializer<GrapefruitNoteDbContext>(new MigrateDatabaseToLatestVersion<GrapefruitNoteDbContext, Configuration>());
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<GrapefruitNoteDbContext, Configuration>());
         }
 
-        public virtual IDbSet<User> Users { get; set; }
+        public static GrapefruitNoteDbContext Create()
+        {
+            return new GrapefruitNoteDbContext();
+        }
 
-        public virtual IDbSet<Note> Notes { get; set; }
+        //public IDbSet<User> Users { get; set; }
 
-        public virtual IDbSet<Category> Categories { get; set; }
+        public IDbSet<Note> Notes { get; set; }
+
+        public IDbSet<Category> Categories { get; set; }
 
         public new void SaveChanges()
         {

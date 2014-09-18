@@ -21,8 +21,14 @@
 
         public virtual ICollection<Note> Notes
         {
-            get { return this.notes; }
-            set { this.notes = value; }
+            get
+            {
+                return this.notes;
+            }
+            set
+            {
+                this.notes = value;
+            }
         }
     }
 }

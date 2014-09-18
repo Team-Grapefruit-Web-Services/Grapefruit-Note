@@ -1,4 +1,6 @@
-﻿using GrapefruitNote.Web.Models;
+﻿using GrapefruitNote.Models;
+using GrapefruitNote.Data;
+using GrapefruitNote.Web.Models;
 using GrapefruitNote.Web.Providers;
 using GrapefruitNote.Web.Results;
 using Microsoft.AspNet.Identity;
@@ -250,7 +252,7 @@ namespace GrapefruitNote.Web.Controllers
                 return new ChallengeResult(provider, this);
             }
 
-            ApplicationUser user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
+            User user = await UserManager.FindAsync(new UserLoginInfo(externalLogin.LoginProvider,
                 externalLogin.ProviderKey));
 
             bool hasRegistered = user != null;
@@ -328,7 +330,7 @@ namespace GrapefruitNote.Web.Controllers
                 return BadRequest(ModelState);
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new User() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user, model.Password);
 
@@ -357,7 +359,7 @@ namespace GrapefruitNote.Web.Controllers
                 return InternalServerError();
             }
 
-            var user = new ApplicationUser() { UserName = model.Email, Email = model.Email };
+            var user = new User() { UserName = model.Email, Email = model.Email };
 
             IdentityResult result = await UserManager.CreateAsync(user);
             if (!result.Succeeded)

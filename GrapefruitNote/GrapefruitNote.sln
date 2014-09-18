@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Models", "GrapefruitNote.Models\GrapefruitNote.Models.csproj", "{DD255611-0385-41AB-978B-9F5A6BE03DD4}"
 EndProject
@@ -10,13 +10,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.ConsoleClient", "GrapefruitNote.ConsoleClient\GrapefruitNote.ConsoleClient.csproj", "{08C053A7-51C3-4808-ACDA-8846D1DA7599}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Web", "GrapefruitNote.Web\GrapefruitNote.Web.csproj", "{BAAF2892-C010-4627-B41A-6332CF821507}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{7799672A-BB8C-41A9-9F83-7E4431CFE9A3}"
-	ProjectSection(SolutionItems) = preProject
-		.nuget\NuGet.Config = .nuget\NuGet.Config
-		.nuget\NuGet.exe = .nuget\NuGet.exe
-		.nuget\NuGet.targets = .nuget\NuGet.targets
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
