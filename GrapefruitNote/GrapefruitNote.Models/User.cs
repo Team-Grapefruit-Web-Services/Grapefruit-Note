@@ -14,21 +14,10 @@
         public User()
         {
             this.Notes = new HashSet<Note>();
+            this.Categories = new HashSet<Category>();
         }   
 
-        public string ProfilePicture { get; set; }
-
-        public virtual ICollection<Category> Categories
-        {
-            get
-            {
-                return this.categories;
-            }
-            set
-            {
-                this.categories = value;
-            }
-        }
+        public string ProfilePictureUrl { get; set; }
 
         public virtual ICollection<Note> Notes
         {
@@ -39,6 +28,18 @@
             set
             {
                 this.notes = value;
+            }
+        }
+
+        public virtual ICollection<Category> Categories
+        {
+            get
+            {
+                return this.categories;
+            }
+            set
+            {
+                this.categories = value;
             }
         }
 
