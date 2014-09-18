@@ -303,9 +303,17 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GrapefruitNote.DataTransferObjects\GrapefruitNote.DataTransferObjects.csproj">
+      <Project>{ec847895-cd9b-43bc-b0c7-cdf9887338a9}</Project>
+      <Name>GrapefruitNote.DataTransferObjects</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GrapefruitNote.Data\GrapefruitNote.Data.csproj">
       <Project>{1c297b28-f1aa-41a1-b07c-9ba67166a200}</Project>
       <Name>GrapefruitNote.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GrapefruitNote.Mappers\GrapefruitNote.Mappers.csproj">
+      <Project>{a00bf4a2-e395-4ec4-89e5-13d63b820973}</Project>
+      <Name>GrapefruitNote.Mappers</Name>
     </ProjectReference>
     <ProjectReference Include="..\GrapefruitNote.Models\GrapefruitNote.Models.csproj">
       <Project>{dd255611-0385-41ab-978b-9f5a6be03dd4}</Project>

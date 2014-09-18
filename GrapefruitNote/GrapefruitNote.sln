@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.ConsoleClien
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Web", "GrapefruitNote.Web\GrapefruitNote.Web.csproj", "{BAAF2892-C010-4627-B41A-6332CF821507}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Mappers", "GrapefruitNote.Mappers\GrapefruitNote.Mappers.csproj", "{A00BF4A2-E395-4EC4-89E5-13D63B820973}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.DataTransferObjects", "GrapefruitNote.DataTransferObjects\GrapefruitNote.DataTransferObjects.csproj", "{EC847895-CD9B-43BC-B0C7-CDF9887338A9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{BAAF2892-C010-4627-B41A-6332CF821507}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAAF2892-C010-4627-B41A-6332CF821507}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAAF2892-C010-4627-B41A-6332CF821507}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A00BF4A2-E395-4EC4-89E5-13D63B820973}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A00BF4A2-E395-4EC4-89E5-13D63B820973}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A00BF4A2-E395-4EC4-89E5-13D63B820973}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A00BF4A2-E395-4EC4-89E5-13D63B820973}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EC847895-CD9B-43BC-B0C7-CDF9887338A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EC847895-CD9B-43BC-B0C7-CDF9887338A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EC847895-CD9B-43BC-B0C7-CDF9887338A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EC847895-CD9B-43BC-B0C7-CDF9887338A9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

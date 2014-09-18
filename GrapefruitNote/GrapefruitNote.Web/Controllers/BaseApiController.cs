@@ -3,6 +3,7 @@
     using GrapefruitNote.Data;
     using System.Web.Http;
 
+    [Authorize]
     public abstract class BaseApiController : ApiController
     {
         protected IGrapefruitNoteData data;
