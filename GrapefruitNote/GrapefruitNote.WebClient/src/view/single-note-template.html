@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../../styles/bootstrap/css/bootstrap-sandstone-theme.min.css" />
+    <link rel="stylesheet" href="../../styles/styles.css" />
+    <script type="text/javascript" src="../../scripts/libs/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../styles/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../scripts/libs/handlebars-v2.0.0.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-6 col-md-7 col-sm-6 center-block" id="root">
+            <script type="text/x-handlebars-template" id="single-note-template">
+                <div class="well bs-component">
+                    <h3>{{title}}</h3>
+                    <p>{{text}}</p>
+                    <p>{{entryDate}}</p>
+                </div>
+            </script>
+            <script>
+                var source = $("#single-note-template").html();
+                var template = Handlebars.compile(source);
+                var note = { title: "Sample Title 01", text: "Alan", entryDate: "12.12.2012" };
+                $("#root").html(template(note));
+            </script>
+        </div>
+    </div>
+</body>
+</html>
