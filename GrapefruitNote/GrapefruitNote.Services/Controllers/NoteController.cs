@@ -103,7 +103,7 @@
             var notes = this.data.Notes.All()
                 .Where(n => 
                     n.UserId == currentUser.UserId
-                    && n.Priority == priority)
+                    && (int)n.Priority == priority)
                 .Select(NoteMapper.ToNoteModel);
 
             return Ok(notes);
