@@ -29,8 +29,8 @@ namespace GrapefruitNote.Services.Controllers
         [HttpPost, ActionName("register")]
         public IHttpActionResult Register(UserLoginModel userToRegister)
         {
-            UserValidator.ValidateAuthCode(userToRegister.AuthCode);
-            UserValidator.ValidateUsername(userToRegister.Username);
+            //UserValidator.ValidateAuthCode(userToRegister.AuthCode);
+            //UserValidator.ValidateUsername(userToRegister.Username);
 
             var newUser = toUserEntity(userToRegister);
 
@@ -43,8 +43,8 @@ namespace GrapefruitNote.Services.Controllers
         [HttpPost, ActionName("login")]
         public IHttpActionResult Login(UserLoginModel userToLogin)
         {
-            UserValidator.ValidateAuthCode(userToLogin.AuthCode);
-            UserValidator.ValidateUsername(userToLogin.Username);
+            //UserValidator.ValidateAuthCode(userToLogin.AuthCode);
+            //UserValidator.ValidateUsername(userToLogin.Username);
 
             var user = this.GetByUsernameAndAuthCode(userToLogin.Username, userToLogin.AuthCode);
 

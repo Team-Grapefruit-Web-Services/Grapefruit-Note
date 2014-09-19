@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="../../styles/bootstrap/css/bootstrap-sandstone-theme.min.css" />
+    <link rel="stylesheet" href="../../styles/styles.css" />
+    <script type="text/javascript" src="../../scripts/libs/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../../styles/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-1 col-xs-2 center-block">
+            <div class="well bs-component">
+                <form action="#/login" class="bs-component">
+                    <fieldset>
+                        <legend>Enter note details</legend>
+                        <div class="form-group">
+                            <label class="control-label" for="note-title">Title</label>
+                            <input class="form-control" id="note-title" value="Enter title here..." required="required" >
+                            <label class="control-label" for="deadline">Deadline</label>
+                            <input class="form-control" id="deadline" value="YYYY-MM-DD..." required="required">
+                            <label class="control-label" for="priority">Priority</label>
+                            <input class="form-control" id="priority" value="Enter priority (0-3)..." required="required">
+                        </div>
+                        <textarea class="form-control" rows="3" id="note-text">Enter some text here...</textarea>
+                    </fieldset>
+                    <button class="btn btn-lg btn-primary btn-block" id="submit-note">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
