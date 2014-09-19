@@ -38,6 +38,7 @@
                 return userModel => new User
                 {
                     Username = userModel.Username,
+                    Email = userModel.Email,
                     AuthCode = userModel.AuthCode
                 };
             }

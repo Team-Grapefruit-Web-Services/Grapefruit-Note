@@ -10,6 +10,8 @@ namespace GrapefruitNote.DataTransferObjects
     {
         public string Username { get; set; }
 
+        public string Email { get; set; }
+
         public string AuthCode { get; set; }
     }
 }

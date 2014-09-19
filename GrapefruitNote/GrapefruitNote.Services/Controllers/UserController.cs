@@ -14,6 +14,8 @@ namespace GrapefruitNote.Services.Controllers
 {
     public class UserController : BaseApiController
     {
+        private readonly Func<UserLoginModel, User> toUserEntity = UserMapper.ToUserEntity.Compile();
+
         public UserController() 
             : base(new GrapefruitNoteData())
         {
@@ -27,11 +29,10 @@ namespace GrapefruitNote.Services.Controllers
         [HttpPost, ActionName("register")]
         public IHttpActionResult Register(UserLoginModel userToRegister)
         {
-            //UserValidator.ValidateAuthCode(userToRegister.AuthCode);
-            //UserValidator.ValidateUsername(userToRegister.Username);
+            UserValidator.ValidateAuthCode(userToRegister.AuthCode);
+            UserValidator.ValidateUsername(userToRegister.Username);
 
-            var compiledModelToEntityExpression = UserMapper.ToUserEntity.Compile();
-            var newUser = compiledModelToEntityExpression(userToRegister);
+            var newUser = toUserEntity(userToRegister);
 
             this.data.Users.Add(newUser);
             this.data.SaveChanges();
@@ -42,8 +43,8 @@ namespace GrapefruitNote.Services.Controllers
         [HttpPost, ActionName("login")]
         public IHttpActionResult Login(UserLoginModel userToLogin)
         {
-            //UserValidator.ValidateAuthCode(userToLogin.AuthCode);
-            //UserValidator.ValidateUsername(userToLogin.Username);
+            UserValidator.ValidateAuthCode(userToLogin.AuthCode);
+            UserValidator.ValidateUsername(userToLogin.Username);
 
             var user = this.GetByUsernameAndAuthCode(userToLogin.Username, userToLogin.AuthCode);
 

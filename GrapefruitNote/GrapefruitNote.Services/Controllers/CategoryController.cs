@@ -12,6 +12,8 @@
     
     public class CategoryController : BaseApiController
     {
+        private readonly Func<CategoryModel, Category> toCategoryEntity = CategoryMapper.ToCategoryEntity.Compile();
+
         public CategoryController()
             :this(new GrapefruitNoteData())
         {
@@ -29,7 +31,7 @@
 
             if (currentUser == null)
             {
-                return BadRequest("Invalid user");
+                return BadRequest("Unauthorized access.");
             }
 
             var allCategories = this.data.Categories
@@ -52,11 +54,10 @@
 
             if (currentUser == null)
             {
-                return BadRequest("Invalid user");
+                return BadRequest("Unauthorized access.");
             }
 
-            var compiledModelToEntityExpression = CategoryMapper.ToCategoryEntity.Compile();
-            var newCategory = compiledModelToEntityExpression(categoryModel);
+            var newCategory = toCategoryEntity(categoryModel);
             newCategory.UserId = currentUser.UserId;
 
             this.data.Categories.Add(newCategory);
@@ -86,7 +87,7 @@
 
             if (currentUser == null)
             {
-                return BadRequest("Invalid user");
+                return BadRequest("Unauthorized access.");
             }
 
             existingCategory.Name = categoryModel.Name;
@@ -109,7 +110,7 @@
 
             if (currentUser == null)
             {
-                return BadRequest("Invalid user");
+                return BadRequest("Unauthorized access.");
             }
 
             this.data.Categories.Delete(existingCategory);

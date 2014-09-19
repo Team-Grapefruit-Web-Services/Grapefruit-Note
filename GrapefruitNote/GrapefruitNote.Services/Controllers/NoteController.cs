@@ -12,6 +12,8 @@
 
     public class NoteController : BaseApiController
     {
+        private readonly Func<NoteModel, Note> toNoteEntity = NoteMapper.ToNoteEntity.Compile();
+        
         public NoteController()
             :this(new GrapefruitNoteData())
         {
@@ -54,8 +56,7 @@
                 return BadRequest("Invalid user");
             }
 
-            var compiledModelToEntityExpression = NoteMapper.ToNoteEntity.Compile();
-            var newNote = compiledModelToEntityExpression(noteModel);
+            var newNote = toNoteEntity(noteModel);
             newNote.UserId = currentUser.UserId;
 
             this.data.Notes.Add(newNote);
@@ -82,14 +83,10 @@
                 return this.BadRequest("Note with this id does not exist.");
             }
 
-            existingNote.Title = noteModel.Title;
-            existingNote.Text = noteModel.Text;
-            existingNote.Priority = (Priority)noteModel.Priority;
-            existingNote.EntryDate = noteModel.EntryDate;
-            existingNote.DueDate = noteModel.DueDate;
-            existingNote.Categories = noteModel.Categories.AsQueryable().Select(CategoryMapper.ToCategoryEntity).ToList();
-
+            var updated = toNoteEntity(noteModel);
+            existingNote = updated;
             this.data.SaveChanges();
+
             return Ok(existingNote);
         }
 
@@ -100,7 +97,7 @@
 
             if (currentUser == null)
             {
-                return BadRequest("Invalid user");
+                return BadRequest("Unauthorized access.");
             }
 
             var existingNote = currentUser.Notes.FirstOrDefault(n => n.NoteId == id);
@@ -130,7 +127,7 @@
 
             if (currentUser == null)
             {
-                return BadRequest("Invalid user");
+                return BadRequest("Unauthorized access.");
             }
 
             var category = this.data.Categories.All().FirstOrDefault(c => c.CategoryId == categoryId);

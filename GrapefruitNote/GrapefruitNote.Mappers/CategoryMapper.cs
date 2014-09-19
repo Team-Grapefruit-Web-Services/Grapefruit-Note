@@ -13,8 +13,8 @@
             {
                 return category => new CategoryModel
                 {
-                    Name = category.Name,
-                    CategoryId = category.CategoryId
+                    CategoryId = category.CategoryId,
+                    Name = category.Name
                 };
             }
         }
