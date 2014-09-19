@@ -1,25 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web;
-using System.Web.Http;
-using System.Threading;
-using System.Threading.Tasks;
-
-using Google;
-using Google.Apis.Auth.OAuth2;
-using Google.Apis.Drive.v2;
-using Google.Apis.Drive.v2.Data;
-using Google.Apis.Services;
-
-using GrapefruitNote.Services.Controllers;
-using GrapefruitNote.Data;
-using GrapefruitNote.Models;
-
-namespace GrapefruitNote.Web.Controllers
+﻿namespace GrapefruitNote.Services.Controllers
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Net;
+    using System.Net.Http;
+    using System.Web;
+    using System.Web.Http;
+    using System.Threading;
+    using System.Threading.Tasks;
+
+    using Google;
+    using Google.Apis.Auth.OAuth2;
+    using Google.Apis.Drive.v2;
+    using Google.Apis.Drive.v2.Data;
+    using Google.Apis.Services;
+
+    using GrapefruitNote.Services.Controllers;
+    using GrapefruitNote.Data;
+    using GrapefruitNote.Models;
+
     public class CloudStorageController : BaseApiController
     {
         private const string GoogleDriveClientId = "735079433623-28dbigh1qehsp5k4tmpph2i3s40gr41t.apps.googleusercontent.com";

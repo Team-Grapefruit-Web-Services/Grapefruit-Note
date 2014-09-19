@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.30501.0
+# Visual Studio Express 2013 for Web
+VisualStudioVersion = 12.0.30723.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Models", "GrapefruitNote.Models\GrapefruitNote.Models.csproj", "{DD255611-0385-41AB-978B-9F5A6BE03DD4}"
 EndProject
@@ -14,10 +14,6 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.DataTransferObjects", "GrapefruitNote.DataTransferObjects\GrapefruitNote.DataTransferObjects.csproj", "{EC847895-CD9B-43BC-B0C7-CDF9887338A9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Services", "GrapefruitNote.Services\GrapefruitNote.Services.csproj", "{CA40FF90-B7F6-47AD-8592-69A694E50D72}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.Web", "GrapefruitNote.Web\GrapefruitNote.Web.csproj", "{BAAF2892-C010-4627-B41A-6332CF821507}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrapefruitNote.WebClient", "GrapefruitNote.WebClient\GrapefruitNote.WebClient.csproj", "{B571F582-BB75-456C-8FDD-46F0324D7298}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,14 +45,6 @@ Global
 		{CA40FF90-B7F6-47AD-8592-69A694E50D72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA40FF90-B7F6-47AD-8592-69A694E50D72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA40FF90-B7F6-47AD-8592-69A694E50D72}.Release|Any CPU.Build.0 = Release|Any CPU
-		{BAAF2892-C010-4627-B41A-6332CF821507}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BAAF2892-C010-4627-B41A-6332CF821507}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BAAF2892-C010-4627-B41A-6332CF821507}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BAAF2892-C010-4627-B41A-6332CF821507}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B571F582-BB75-456C-8FDD-46F0324D7298}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B571F582-BB75-456C-8FDD-46F0324D7298}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B571F582-BB75-456C-8FDD-46F0324D7298}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B571F582-BB75-456C-8FDD-46F0324D7298}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
