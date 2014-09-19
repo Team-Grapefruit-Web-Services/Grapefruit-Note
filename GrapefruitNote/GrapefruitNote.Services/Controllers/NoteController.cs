@@ -90,6 +90,25 @@
             return Ok(existingNote);
         }
 
+        [HttpGet, ActionName("getByPriority")]
+        public IHttpActionResult GetByPriority(string sessionKey, int priority)
+        {
+            var currentUser = this.GetUserBySessionKey(sessionKey);
+
+            if (currentUser == null)
+            {
+                return BadRequest("Invalid user");
+            }
+
+            var notes = this.data.Notes.All()
+                .Where(n => 
+                    n.UserId == currentUser.UserId
+                    && n.Priority == priority)
+                .Select(NoteMapper.ToNoteModel);
+
+            return Ok(notes);
+        }
+
         [HttpDelete, ActionName("delete")]
         public IHttpActionResult Delete(string sessionKey, int id)
         {
